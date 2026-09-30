@@ -145,8 +145,13 @@
 
             <div class="flex items-center gap-4 w-full lg:w-auto justify-between lg:justify-start">
                 <div class="flex items-center gap-3">
+                    <!-- LOGO CONTAINER 1 -->
                     <div class="w-12 h-12 rounded-lg border-2 border-cyber-red bg-black/80 flex items-center justify-center p-1 shadow-lg shadow-cyber-red/30 relative group cursor-pointer overflow-hidden" onclick="triggerAudio('click')">
                         <img src="bcc.jpg" alt="Campus Connect Logo" class="w-full h-full object-contain transform group-hover:scale-110 transition-transform" />
+                    </div>
+                    <!-- LOGO CONTAINER 2 (ADDED) -->
+                    <div class="w-12 h-12 rounded-lg border-2 border-cyber-red bg-black/80 flex items-center justify-center p-1 shadow-lg shadow-cyber-red/30 relative group cursor-pointer overflow-hidden" onclick="triggerAudio('click')">
+                        <img src="IS.jpg" alt="Secondary Logo" class="w-full h-full object-contain transform group-hover:scale-110 transition-transform" />
                     </div>
                     <div>
                         <div class="flex items-center gap-2">
@@ -209,11 +214,17 @@
 
             <section class="lg:col-span-8 flex flex-col space-y-4">
                 <div class="cyber-card corner-accent rounded-xl p-5 md:p-6 flex-1 flex flex-col justify-between relative overflow-hidden group min-h-[440px]">
-                    <div class="absolute -right-10 -bottom-10 opacity-10 pointer-events-none transform rotate-12 group-hover:opacity-20 transition-all duration-700">
+                    
+                    <!-- DYNAMIC BACKGROUND IMAGE CONTAINER -->
+                    <div id="card-bg-image" class="absolute inset-0 bg-cover bg-center transition-all duration-700 opacity-25 group-hover:opacity-35 pointer-events-none z-0"></div>
+                    <!-- OVERLAY GRADIENT TO ENSURE READABILITY -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent pointer-events-none z-0"></div>
+
+                    <div class="absolute -right-10 -bottom-10 opacity-10 pointer-events-none transform rotate-12 group-hover:opacity-20 transition-all duration-700 z-0">
                         <i id="card-bg-icon" class="fa-solid fa-flask text-[320px] text-cyber-red transition-all duration-500"></i>
                     </div>
 
-                    <div>
+                    <div class="relative z-10">
                         <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
                             <div class="flex flex-wrap items-center gap-1.5 bg-black/60 border border-cyber-border p-1 rounded-lg">
                                 <button onclick="setCategoryFilter('ALL')" class="cat-filter-btn px-3 py-1 rounded text-xs font-orbitron bg-cyber-red text-white shadow-sm shadow-cyber-red/40 transition-all">ALL</button>
@@ -266,7 +277,7 @@
                         </div>
                     </div>
 
-                    <div class="mt-8 pt-4 border-t border-cyber-border/80 flex flex-wrap items-end justify-between gap-4">
+                    <div class="mt-8 pt-4 border-t border-cyber-border/80 flex flex-wrap items-end justify-between gap-4 relative z-10">
                         <div class="space-y-2">
                             <div class="flex flex-wrap items-center gap-4 text-xs font-rajdhani text-cyber-muted font-semibold tracking-wide">
                                 <span><i class="fa-solid fa-location-dot text-cyber-red mr-1"></i> LOCATION: <strong id="card-location" class="text-white">ACCESS Office, IS Dept</strong></span>
@@ -473,6 +484,7 @@
     </div>
 
     <script>
+        // UPDATED bgImage PROPERTY FOR ALL ANNOUNCEMENT ITEMS
         const announcements = [
             {
                 id: 1,
@@ -483,7 +495,8 @@
                 description: "Official Midterm Exam schedules for ACT and BSIS are now available. All students are advised to secure their examination permits from the ACCESS Office prior to exam week.",
                 location: "ACCESS Office, IS Department",
                 deadline: "OCT 12, 5:00 PM",
-                posted: "LIVE NOW"
+                posted: "LIVE NOW",
+                bgImage: "main bg.jpg"
             },
             {
                 id: 2,
@@ -494,7 +507,8 @@
                 description: "For those who still want to order the ACT-BSIS Departmental Shirt, the 2nd Batch of Ordering will officially start on Monday.",
                 location: "2nd Floor, ACCESS OFFICE, IS Building",
                 deadline: "OCT 5, 5:00 PM",
-                posted: "TODAY"
+                posted: "TODAY",
+                bgImage: "main bg.jpg"
             },
             {
                 id: 3,
@@ -505,7 +519,8 @@
                 description: "Final tryouts and championship prep for the upcoming regional athletic meet start this Thursday at the Activity Center. All student-athletes must present clearance.",
                 location: "Activity Center",
                 deadline: "THU, 4:00 PM",
-                posted: "YESTERDAY"
+                posted: "YESTERDAY",
+                bgImage: "main bg.jpg"
             },
             {
                 id: 4,
@@ -516,7 +531,8 @@
                 description: "Please be guided with the official schedule for the Film Festival 2026.",
                 location: "G-drive Link",
                 deadline: "FRI, 6:00 PM",
-                posted: "OCT 1"
+                posted: "OCT 1",
+                bgImage: "main bg.jpg"
             },
             {
                 id: 5,
@@ -527,7 +543,8 @@
                 description: "Suicide prevention month shouldn't limit to a single month in September. Empathy is an ongoing action.",
                 location: "Taculing Campus",
                 deadline: "EVERYDAY",
-                posted: "TODAY"
+                posted: "TODAY",
+                bgImage: "main bg.jpg"
             }
         ];
 
@@ -679,6 +696,14 @@
                 document.getElementById('card-posted-date').textContent = `POSTED: ${item.posted}`;
                 document.getElementById('carousel-count').textContent = `${currentIndex + 1}/${list.length}`;
                 
+                // UPDATE BACKGROUND IMAGE DYNAMICALLY
+                const bgBox = document.getElementById('card-bg-image');
+                if (item.bgImage) {
+                    bgBox.style.backgroundImage = `url('${item.bgImage}')`;
+                } else {
+                    bgBox.style.backgroundImage = 'none';
+                }
+
                 document.getElementById('card-badge-icon').className = `fa-solid ${item.badgeIcon}`;
                 document.getElementById('card-bg-icon').className = `fa-solid ${item.icon} text-[320px] text-cyber-red transition-all duration-500`;
 
