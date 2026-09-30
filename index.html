@@ -89,16 +89,18 @@
             text-shadow: 0 0 12px rgba(255, 0, 51, 0.8), 0 0 24px rgba(255, 0, 51, 0.4);
         }
 
-        .glow-box-red {
-            box-shadow: 0 0 18px rgba(255, 0, 51, 0.5);
+        .active-event-card {
+            background: linear-gradient(135deg, rgba(255, 0, 51, 0.25) 0%, rgba(20, 5, 10, 0.95) 100%);
+            border-left: 5px solid #ff0033 !important;
+            box-shadow: 0 0 25px rgba(255, 0, 51, 0.35);
         }
 
         @keyframes pulse-glow {
-            0%, 100% { opacity: 1; filter: drop-shadow(0 0 8px rgba(255, 0, 51, 0.9)); }
-            50% { opacity: 0.4; filter: drop-shadow(0 0 2px rgba(255, 0, 51, 0.2)); }
+            0%, 100% { opacity: 1; filter: drop-shadow(0 0 10px rgba(255, 0, 51, 0.9)); transform: scale(1); }
+            50% { opacity: 0.5; filter: drop-shadow(0 0 2px rgba(255, 0, 51, 0.3)); transform: scale(0.95); }
         }
         .live-pulse-dot {
-            animation: pulse-glow 1.8s infinite ease-in-out;
+            animation: pulse-glow 1.5s infinite ease-in-out;
         }
 
         @keyframes marquee {
@@ -130,7 +132,6 @@
 
     <canvas id="cyber-canvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
 
-  
     <div class="fixed inset-0 flex items-center justify-center pointer-events-none z-0 opacity-5 select-none overflow-hidden">
         <h1 class="font-orbitron text-[15vw] font-black tracking-widest text-cyber-red whitespace-nowrap transform -rotate-12 uppercase">
             CYBER LYNX
@@ -139,16 +140,13 @@
 
     <div class="relative z-10 flex flex-col min-h-screen p-3 md:p-5 space-y-4 max-w-[1800px] mx-auto w-full">
 
-       
         <header class="cyber-card corner-accent rounded-xl p-4 border-cyber-red/40 flex flex-col lg:flex-row items-center justify-between gap-4 relative overflow-hidden">
             <div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-cyber-red to-transparent"></div>
 
-           
             <div class="flex items-center gap-4 w-full lg:w-auto justify-between lg:justify-start">
                 <div class="flex items-center gap-3">
-                    
                     <div class="w-12 h-12 rounded-lg border-2 border-cyber-red bg-black/80 flex items-center justify-center p-1 shadow-lg shadow-cyber-red/30 relative group cursor-pointer overflow-hidden" onclick="triggerAudio('click')">
-                        <img src="bcc.jpg" alt="Campus Connect Logo" class="w-full h-full object-contain transform group-hover:scale-110 transition-transform" />
+                        <img src="IS.jpg" alt="Campus Connect Logo" class="w-full h-full object-contain transform group-hover:scale-110 transition-transform" />
                     </div>
                     <div>
                         <div class="flex items-center gap-2">
@@ -161,24 +159,17 @@
                     </div>
                 </div>
 
-                
-              <div class="hidden sm:flex bg-black/70 border border-cyber-border p-1 rounded-lg gap-1">
-    <!-- Hallway Display Button -->
-    <button id="btn-hallway" onclick="setPortalView('hallway')" class="px-3.5 py-1.5 rounded text-xs font-orbitron font-semibold tracking-wide transition-all bg-cyber-red text-white shadow-md shadow-cyber-red/30 flex items-center gap-2">
-        <i class="fa-solid fa-tv text-xs"></i> HALLWAY DISPLAY
-    </button>
-    
-    <!-- Student Portal Button with Login Action -->
-    <button id="btn-student" onclick="redirectToLogin()" class="group px-3.5 py-1.5 rounded text-xs font-orbitron font-semibold tracking-wide transition-all text-cyber-muted hover:text-white hover:bg-cyber-red/20 flex items-center gap-2 border border-transparent hover:border-cyber-red/40">
-        <i class="fa-solid fa-user-graduate text-xs"></i> 
-        <span>STUDENT PORTAL</span>
-        <span class="ml-1 px-1.5 py-0.5 text-[10px] bg-cyber-red/20 text-cyber-red border border-cyber-red/50 rounded group-hover:bg-cyber-red group-hover:text-white transition-all flex items-center gap-1 font-bold">
-        </span>
-    </button>
-</div>
+                <div class="hidden sm:flex bg-black/70 border border-cyber-border p-1 rounded-lg gap-1">
+                    <button id="btn-hallway" onclick="setPortalView('hallway')" class="px-3.5 py-1.5 rounded text-xs font-orbitron font-semibold tracking-wide transition-all bg-cyber-red text-white shadow-md shadow-cyber-red/30 flex items-center gap-2">
+                        <i class="fa-solid fa-tv text-xs"></i> HALLWAY DISPLAY
+                    </button>
+                    <button id="btn-student" onclick="redirectToLogin()" class="group px-3.5 py-1.5 rounded text-xs font-orbitron font-semibold tracking-wide transition-all text-cyber-muted hover:text-white hover:bg-cyber-red/20 flex items-center gap-2 border border-transparent hover:border-cyber-red/40">
+                        <i class="fa-solid fa-user-graduate text-xs"></i> 
+                        <span>STUDENT PORTAL</span>
+                    </button>
+                </div>
             </div>
 
-           
             <div class="hidden xl:flex flex-col items-center justify-center text-center px-4">
                 <span class="font-rajdhani text-cyber-red text-sm font-bold tracking-[0.25em] uppercase glow-title">
                     " IS DEPARTMENT • DIGITAL BULLETIN BOARD "
@@ -188,15 +179,11 @@
                 </p>
             </div>
 
-           
             <div class="flex items-center justify-between lg:justify-end w-full lg:w-auto gap-4 border-t lg:border-t-0 border-cyber-border pt-3 lg:pt-0">
-                
-               
                 <button id="audio-toggle" onclick="toggleAudioMute()" class="w-10 h-10 rounded-lg bg-black/60 border border-cyber-border hover:border-cyber-red text-cyber-muted hover:text-cyber-red flex items-center justify-center transition-all" title="Toggle Sci-Fi Audio FX">
                     <i id="audio-icon" class="fa-solid fa-volume-high text-sm"></i>
                 </button>
 
-                
                 <div onclick="cycleWeather()" class="flex items-center gap-3 bg-black/60 border border-cyber-border hover:border-cyber-red px-3 py-1.5 rounded-lg cursor-pointer transition-all">
                     <i id="weather-icon" class="fa-solid fa-sun text-amber-400 text-xl live-pulse-dot"></i>
                     <div>
@@ -207,13 +194,12 @@
                     </div>
                 </div>
 
-               
                 <div class="text-right">
                     <div id="live-clock" class="font-orbitron font-black text-2xl md:text-3xl text-white tracking-wider glow-title leading-none">
                         08:30:00 PM
                     </div>
                     <div id="live-date" class="font-rajdhani text-xs font-bold text-cyber-red tracking-widest uppercase mt-1">
-                        TUESDAY, SEP 29, 2026
+                        WEDNESDAY, SEP 30, 2026
                     </div>
                 </div>
             </div>
@@ -221,21 +207,14 @@
 
         <main class="grid grid-cols-1 lg:grid-cols-12 gap-5 flex-1">
 
-           
             <section class="lg:col-span-8 flex flex-col space-y-4">
-
-               
                 <div class="cyber-card corner-accent rounded-xl p-5 md:p-6 flex-1 flex flex-col justify-between relative overflow-hidden group min-h-[440px]">
-                    
-                    
                     <div class="absolute -right-10 -bottom-10 opacity-10 pointer-events-none transform rotate-12 group-hover:opacity-20 transition-all duration-700">
                         <i id="card-bg-icon" class="fa-solid fa-flask text-[320px] text-cyber-red transition-all duration-500"></i>
                     </div>
 
-                    
                     <div>
                         <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
-                            
                             <div class="flex flex-wrap items-center gap-1.5 bg-black/60 border border-cyber-border p-1 rounded-lg">
                                 <button onclick="setCategoryFilter('ALL')" class="cat-filter-btn px-3 py-1 rounded text-xs font-orbitron bg-cyber-red text-white shadow-sm shadow-cyber-red/40 transition-all">ALL</button>
                                 <button onclick="setCategoryFilter('ACADEMIC')" class="cat-filter-btn px-3 py-1 rounded text-xs font-orbitron text-cyber-muted hover:text-white transition-all">ACADEMIC</button>
@@ -244,7 +223,6 @@
                                 <button onclick="setCategoryFilter('URGENT')" class="cat-filter-btn px-3 py-1 rounded text-xs font-orbitron text-cyber-muted hover:text-white transition-all">URGENT</button>
                             </div>
 
-                            
                             <div class="flex items-center gap-3">
                                 <button id="play-pause-btn" onclick="toggleAutoAdvance()" class="w-8 h-8 rounded border border-cyber-border hover:border-cyber-red text-cyber-muted hover:text-white flex items-center justify-center transition-all">
                                     <i id="play-pause-icon" class="fa-solid fa-pause text-xs"></i>
@@ -255,7 +233,7 @@
                                         <circle class="text-cyber-border" stroke-width="2.5" stroke="currentColor" fill="transparent" r="12" cx="16" cy="16"/>
                                         <circle id="progress-ring" class="progress-ring-circle text-cyber-red" stroke-width="2.5" stroke-dasharray="75.39" stroke-dashoffset="0" stroke-linecap="round" stroke="currentColor" fill="transparent" r="12" cx="16" cy="16"/>
                                     </svg>
-                                    <span id="carousel-count" class="absolute font-mono text-[10px] font-bold text-white">1/4</span>
+                                    <span id="carousel-count" class="absolute font-mono text-[10px] font-bold text-white">1/5</span>
                                 </div>
 
                                 <div class="flex items-center gap-1 bg-black/60 border border-cyber-border p-1 rounded-lg">
@@ -269,36 +247,32 @@
                             </div>
                         </div>
 
-                        
                         <div id="card-content-box" class="space-y-4 mt-6 transition-all duration-300">
                             <div class="flex items-center gap-2">
                                 <span id="card-category-badge" class="bg-cyber-red/20 border border-cyber-red text-cyber-red px-3 py-1 rounded-md font-orbitron text-xs font-bold tracking-wider uppercase flex items-center gap-2 shadow-sm shadow-cyber-red/30">
-                                    <i id="card-badge-icon" class="fa-solid fa-graduation-cap"></i> <span id="card-category-text">ACADEMIC</span>
+                                    <i id="card-badge-icon" class="fa-solid fa-triangle-exclamation"></i> <span id="card-category-text">URGENT</span>
                                 </span>
                                 <span id="card-posted-date" class="bg-black/60 border border-cyber-border text-cyber-muted px-2.5 py-1 rounded-md font-mono text-[11px]">
-                                    POSTED: TODAY
+                                    POSTED: LIVE NOW
                                 </span>
                             </div>
 
                             <h2 id="card-title" class="font-orbitron font-black text-3xl md:text-4xl text-white tracking-wide leading-tight glow-title">
-                                Announcement! 2nd BATCH DEPT SHIRT
+                                MIDTERM EXAMINATION SCHEDULE & CLEARANCE
                             </h2>
                             <p id="card-description" class="text-cyber-text text-base md:text-lg leading-relaxed max-w-3xl font-normal opacity-90">
-                                For those who still wants to order the ACT-BSIS Departmental Shirt,the 2nd Bacth of Ordering will officially start on Monday.
+                                Official Midterm Exam schedules for ACT and BSIS are now available. All students are advised to secure their examination permits from the ACCESS Office prior to exam week.
                             </p>
-                            
                         </div>
                     </div>
 
-                   
                     <div class="mt-8 pt-4 border-t border-cyber-border/80 flex flex-wrap items-end justify-between gap-4">
                         <div class="space-y-2">
                             <div class="flex flex-wrap items-center gap-4 text-xs font-rajdhani text-cyber-muted font-semibold tracking-wide">
-                                <span><i class="fa-solid fa-location-dot text-cyber-red mr-1"></i> LOCATION: <strong id="card-location" class="text-white">2nd Floor, ACCESS Office, IS Building</strong></span>
-                                <span><i class="fa-solid fa-clock text-cyber-red mr-1"></i> DEADLINE: <strong id="card-deadline" class="text-white">OCT 5, 5:00 PM</strong></span>
+                                <span><i class="fa-solid fa-location-dot text-cyber-red mr-1"></i> LOCATION: <strong id="card-location" class="text-white">ACCESS Office, IS Dept</strong></span>
+                                <span><i class="fa-solid fa-clock text-cyber-red mr-1"></i> DEADLINE: <strong id="card-deadline" class="text-white">OCT 12, 5:00 PM</strong></span>
                             </div>
 
-                            
                             <div class="flex items-center gap-2 pt-1">
                                 <button onclick="toggleBookmarkCurrent()" id="bookmark-btn" class="px-3 py-1.5 rounded bg-black/60 border border-cyber-border hover:border-cyber-red text-cyber-muted hover:text-white text-xs font-orbitron flex items-center gap-1.5 transition-all">
                                     <i class="fa-regular fa-bookmark"></i> SAVE NOTICE
@@ -309,7 +283,6 @@
                             </div>
                         </div>
 
-                        
                         <div class="flex items-center gap-3">
                             <div onclick="openQRModal()" class="bg-black border border-cyber-red/50 p-2 rounded-lg flex items-center gap-3 shadow-md shadow-cyber-red/10 cursor-pointer hover:border-cyber-red transition-all">
                                 <div class="w-12 h-12 bg-white p-1 rounded flex items-center justify-center overflow-hidden">
@@ -328,7 +301,6 @@
                     </div>
                 </div>
 
-               
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div onclick="openModalById(101)" class="cyber-card rounded-xl p-4 border-l-4 border-l-cyber-red flex items-start gap-3 cursor-pointer hover:bg-black/80 transition-all">
                         <div class="w-10 h-10 rounded bg-cyber-red/10 border border-cyber-red/30 flex items-center justify-center shrink-0">
@@ -354,133 +326,42 @@
                 </div>
             </section>
 
-           
             <aside class="lg:col-span-4 flex flex-col space-y-4">
                 <div class="cyber-card corner-accent rounded-xl p-4 md:p-5 flex-1 flex flex-col justify-between border-cyber-red/30 relative">
-                    
                     <div>
-                       
                         <div class="flex items-center justify-between border-b border-cyber-border pb-3 mb-4">
                             <div class="flex items-center gap-2">
-                                <span class="w-2.5 h-2.5 rounded-full bg-cyber-red live-pulse-dot"></span>
+                                <span class="w-3 h-3 rounded-full bg-cyber-red live-pulse-dot"></span>
                                 <h3 class="font-orbitron font-bold text-sm tracking-wider text-white uppercase">HAPPENING NOW</h3>
                             </div>
-                            <span class="text-[10px] font-mono text-cyber-muted bg-black/60 px-2 py-0.5 rounded border border-cyber-border">
+                            <span class="text-[10px] font-mono text-cyber-red bg-cyber-red/10 px-2 py-0.5 rounded border border-cyber-red/40 uppercase font-bold animate-pulse">
                                 LIVE TIMELINE
                             </span>
                         </div>
 
-                       
-                        <div class="space-y-3.5">
-
-                            
-                            <div onclick="showEventDetails('Philippine Constitution', 'Room 7', 'Att. Salem', '11:00 AM - 2:00 PM')" class="relative bg-gradient-to-r from-cyber-red/25 via-black/70 to-black/50 border-l-4 border-l-cyber-red border border-cyber-border p-3.5 rounded-r-lg group hover:border-cyber-red transition-all cursor-pointer">
-                                <div class="flex items-center justify-between text-[11px] font-orbitron font-bold tracking-wider text-cyber-red mb-1">
-                                    <span class="flex items-center gap-1.5">
-                                        <i class="fa-solid fa-circle text-[8px] live-pulse-dot"></i> PERIOD 4 • NOW
-                                    </span>
-                                    <span id="period-time-left" class="bg-cyber-red/20 px-2 py-0.5 rounded border border-cyber-red/40 text-[10px] font-mono">
-                                        18 MIN LEFT
-                                    </span>
-                                </div>
-                                <h4 class="font-orbitron font-extrabold text-base text-white group-hover:text-cyber-red transition-colors">
-                                    Philippine Constitution
-                                </h4>
-                                <div class="text-xs text-cyber-muted font-medium mt-1 flex justify-between">
-                                    <span>Room 7 — Att. Salem</span>
-                                    <span class="font-mono text-white">11:00 AM - 2:00 PM</span>
-                                </div>
-
-                               
-                                <div class="w-full bg-black/60 rounded-full h-1.5 mt-2.5 overflow-hidden border border-cyber-border">
-                                    <div id="class-progress-bar" class="bg-cyber-red h-full rounded-full transition-all duration-1000" style="width: 65%;">
-                                </div>
-                            </div>
-
-                            
-                            <div onclick="showEventDetails('IS107', 'Room 8', 'Ms. Law', '12:10 PM - 1:00 PM')" class="bg-black/50 border-l-4 border-l-cyan-400 border border-cyber-border p-3.5 rounded-r-lg group hover:border-cyan-400 transition-all cursor-pointer">
-                                <div class="flex items-center justify-between text-[11px] font-orbitron font-bold tracking-wider text-cyan-400 mb-1">
-                                    <span>PERIOD 5 • UP NEXT</span>
-                                    <span id="up-next-countdown" class="text-cyan-300 font-mono text-[10px] bg-cyan-950/40 px-2 py-0.5 rounded border border-cyan-800/40">
-                                        IN 8 MIN
-                                    </span>
-                                </div>
-                                <h4 class="font-orbitron font-bold text-base text-white group-hover:text-cyan-300 transition-colors">
-                                    APPSDEV
-                                </h4>
-                                <div class="text-xs text-cyber-muted font-medium mt-1 flex justify-between">
-                                    <span>Room 8 — Ms. Law</span>
-                                    <span class="font-mono text-white">12:10 PM - 1:00 PM</span>
-                                </div>
-                            </div>
-
-                           
-                            <div onclick="showEventDetails('Varsity Basketball Practice', 'Main Gymnasium', 'Coach Davis', '3:30 PM - 5:30 PM')" class="bg-black/40 border-l-4 border-l-amber-500 border border-cyber-border p-3.5 rounded-r-lg group hover:border-amber-500 transition-all cursor-pointer">
-                                <div class="flex items-center justify-between text-[11px] font-orbitron font-bold tracking-wider text-amber-500 mb-1">
-                                    <span class="flex items-center gap-1.5">
-                                        <i class="fa-solid fa-basketball text-xs"></i> AFTER SCHOOL
-                                    </span>
-                                    <span class="font-mono text-[10px] text-cyber-muted">SPORTS</span>
-                                </div>
-                                <h4 class="font-orbitron font-bold text-base text-white group-hover:text-amber-400 transition-colors">
-                                    Varsity Practice
-                                </h4>
-                                <div class="text-xs text-cyber-muted font-medium mt-1 flex justify-between">
-                                    <span>Activity Center</span>
-                                    <span class="font-mono text-white">3:30 PM - 5:30 PM</span>
-                                </div>
-                            </div>
-
-                           
-                            <div onclick="showEventDetails('CAD Club Auditions', 'AVR Studio, IS Building', 'Ms. CAD PRESS', '3:30 PM - 6:00 PM')" class="bg-black/40 border-l-4 border-l-purple-500 border border-cyber-border p-3.5 rounded-r-lg group hover:border-purple-500 transition-all cursor-pointer">
-                                <div class="flex items-center justify-between text-[11px] font-orbitron font-bold tracking-wider text-purple-400 mb-1">
-                                    <span class="flex items-center gap-1.5">
-                                        <i class="fa-solid fa-masks-theater text-xs"></i> UPCOMING EVENT
-                                    </span>
-                                </div>
-                                <h4 class="font-orbitron font-bold text-base text-white group-hover:text-purple-300 transition-colors">
-                                    CAD Club Auditions
-                                </h4>
-                                <div class="text-xs text-cyber-muted font-medium mt-1 flex justify-between">
-                                    <span>AVR Studio, IS Building</span>
-                                    <span class="font-mono text-white">3:30 PM - 6:00 PM</span>
-                                </div>
-                            </div>
-
-                           
-                            <div class="bg-black/30 border-l-4 border-l-gray-600 border border-cyber-border p-3 rounded-r-lg">
-                                <div class="flex items-center justify-between text-[10px] font-orbitron font-bold tracking-wider text-cyber-muted mb-1">
-                                    <span>TOMORROW PREVIEW</span>
-                                    <span class="font-mono">WED, SEP 30</span>
-                                </div>
-                                <p class="text-xs text-white font-medium">
-                                    Faculty Workshop (No Afterschool Clubs)
-                                </p>
-                            </div>
-
+                        <!-- Dynamic Timeline Container -->
+                        <div id="happening-now-container" class="space-y-3.5">
+                            <!-- Dynamically generated via JavaScript -->
                         </div>
                     </div>
-
-
                 </div>
             </aside>
         </main>
 
-       
         <div class="cyber-card rounded-lg p-2 border-cyber-red/40 flex items-center gap-3 overflow-hidden">
             <div class="bg-cyber-red text-white text-[10px] font-orbitron font-bold px-3 py-1 rounded shrink-0 flex items-center gap-1.5 shadow-sm shadow-cyber-red/50">
                 <i class="fa-solid fa-bullhorn live-pulse-dot"></i> FLASH NEWS
             </div>
             <div class="overflow-hidden whitespace-nowrap flex-1 relative font-rajdhani text-sm font-semibold text-white">
                 <div class="animate-marquee inline-block space-x-12">
-                    <span>🚨 <strong class="text-cyber-red">ATTENTION:</strong> Midterm Examination schedule has been posted in the Student Portal.</span>
+                    <span>🚨 <strong class="text-cyber-red">NEW ANNOUNCEMENT:</strong> Midterm Examination schedule and clearance requirements posted!</span>
+                    <span>📢 <strong class="text-cyber-red">ACT-BSIS SHIRT:</strong> 2nd Batch ordering starts Monday at ACCESS Office.</span>
                     <span>🏆 <strong class="text-amber-400">IS DEPARTMENT:</strong> Cyber Lynx team takes 1st place in Sports Fest 2026!</span>
-                    <span>📢 <strong class="text-cyan-400">REMINDER:</strong> Submit your Film Festival entry.</span>
+                    <span>🎬 <strong class="text-cyan-400">REMINDER:</strong> Submit your Film Festival entry link.</span>
                 </div>
             </div>
         </div>
 
-       
         <footer class="cyber-card rounded-xl p-3 px-4 border-cyber-red/30 flex flex-col md:flex-row items-center justify-between text-xs text-cyber-muted gap-2">
             <div class="flex items-center gap-2">
                 <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
@@ -495,7 +376,6 @@
         </footer>
     </div>
 
-   
     <div id="detail-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
         <div class="cyber-card corner-accent rounded-2xl max-w-xl w-full p-6 space-y-5 border-cyber-red shadow-2xl relative">
             <button onclick="closeModal('detail-modal')" class="absolute top-4 right-4 w-8 h-8 rounded-full border border-cyber-border hover:border-cyber-red text-cyber-muted hover:text-white flex items-center justify-center">
@@ -507,24 +387,24 @@
                 <span class="text-xs font-mono text-cyber-muted">IS BULLETIN NOTICE</span>
             </div>
 
-            <h3 id="modal-title" class="font-orbitron font-black text-2xl text-white">Announcement! 2nd BATCH DEPT SHIRT</h3>
+            <h3 id="modal-title" class="font-orbitron font-black text-2xl text-white">Announcement Details</h3>
 
             <p id="modal-desc" class="text-sm text-cyber-text leading-relaxed">
-                For those who still wants to order the ACT-BSIS Departmental Shirt,the 2nd Bacth of Ordering will officially start on Monday.
+                Loading description...
             </p>
 
             <div class="bg-black/70 p-4 rounded-xl border border-cyber-border space-y-2 text-xs font-mono">
                 <div class="flex justify-between">
                     <span class="text-cyber-muted">LOCATION:</span>
-                    <span id="modal-loc" class="text-white font-bold">2nd Floor, ACCESS Office, IS Building</span>
+                    <span id="modal-loc" class="text-white font-bold">ACCESS Office</span>
                 </div>
                 <div class="flex justify-between">
                     <span class="text-cyber-muted">DEADLINE:</span>
-                    <span id="modal-dl" class="text-cyber-red font-bold">OCT 5, 5:00 PM</span>
+                    <span id="modal-dl" class="text-cyber-red font-bold">OCT 12, 5:00 PM</span>
                 </div>
                 <div class="flex justify-between">
                     <span class="text-cyber-muted">ORGANIZER:</span>
-                    <span class="text-white">ACCESS OFFICER</span>
+                    <span class="text-white">ACCESS OFFICER / IS DEPT</span>
                 </div>
             </div>
 
@@ -539,7 +419,6 @@
         </div>
     </div>
 
-   
     <div id="qr-modal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
         <div class="cyber-card corner-accent rounded-2xl max-w-sm w-full p-6 text-center space-y-4 border-cyber-red relative">
             <button onclick="closeModal('qr-modal')" class="absolute top-4 right-4 w-8 h-8 rounded-full border border-cyber-border hover:border-cyber-red text-cyber-muted hover:text-white flex items-center justify-center">
@@ -549,7 +428,6 @@
             <div class="text-xs font-orbitron font-bold text-cyber-red tracking-widest uppercase">MOBILE CONNECT</div>
             <h3 class="font-orbitron font-extrabold text-xl text-white">SCAN TO SYNC</h3>
 
-           
             <div class="w-48 h-48 mx-auto bg-white p-3 rounded-xl shadow-lg shadow-cyber-red/30 relative flex items-center justify-center border-4 border-cyber-red overflow-hidden">
                 <img src="qr.png" alt="Portal QR Code" class="w-full h-full object-contain" />
             </div>
@@ -564,7 +442,6 @@
         </div>
     </div>
 
-   
     <div id="event-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
         <div class="cyber-card corner-accent rounded-2xl max-w-md w-full p-6 space-y-4 border-cyber-red relative">
             <button onclick="closeModal('event-modal')" class="absolute top-4 right-4 w-8 h-8 rounded-full border border-cyber-border hover:border-cyber-red text-cyber-muted hover:text-white flex items-center justify-center">
@@ -599,17 +476,28 @@
         const announcements = [
             {
                 id: 1,
+                category: "URGENT",
+                icon: "fa-triangle-exclamation",
+                badgeIcon: "fa-triangle-exclamation",
+                title: "MIDTERM EXAMINATION SCHEDULE & CLEARANCE",
+                description: "Official Midterm Exam schedules for ACT and BSIS are now available. All students are advised to secure their examination permits from the ACCESS Office prior to exam week.",
+                location: "ACCESS Office, IS Department",
+                deadline: "OCT 12, 5:00 PM",
+                posted: "LIVE NOW"
+            },
+            {
+                id: 2,
                 category: "ACADEMIC",
                 icon: "fa-flask",
                 badgeIcon: "fa-graduation-cap",
                 title: "Announcement! 2nd BATCH DEPT SHIRT",
-                description: " For those who still wants to order the ACT-BSIS Departmental Shirt,the 2nd Bacth of Ordering will officially start on Monday.",
-                location: "2nd Floor,ACCESS OFFICE, IS Building",
+                description: "For those who still want to order the ACT-BSIS Departmental Shirt, the 2nd Batch of Ordering will officially start on Monday.",
+                location: "2nd Floor, ACCESS OFFICE, IS Building",
                 deadline: "OCT 5, 5:00 PM",
                 posted: "TODAY"
             },
             {
-                id: 2,
+                id: 3,
                 category: "ATHLETICS",
                 icon: "fa-basketball",
                 badgeIcon: "fa-trophy",
@@ -620,7 +508,7 @@
                 posted: "YESTERDAY"
             },
             {
-                id: 3,
+                id: 4,
                 category: "EVENTS",
                 icon: "fa-masks-theater",
                 badgeIcon: "fa-masks-theater",
@@ -631,15 +519,71 @@
                 posted: "OCT 1"
             },
             {
-                id: 4,
+                id: 5,
                 category: "URGENT",
                 icon: "fa-shield-halved",
                 badgeIcon: "fa-shield-halved",
                 title: "Suicide Prevention Month",
                 description: "Suicide prevention month shouldn't limit to a single month in September. Empathy is an ongoing action.",
                 location: "Taculing Campus",
-                celebrated: "EVERYDAY",
+                deadline: "EVERYDAY",
                 posted: "TODAY"
+            }
+        ];
+
+        // Dynamic Schedule Data with current time windows
+        const scheduleData = [
+            {
+                title: "Apps Development Lab",
+                room: "Computer Lab 3",
+                instructor: "Ms. Law",
+                startTime: "08:00",
+                endTime: "11:00",
+                displayTime: "08:00 AM - 11:00 AM",
+                type: "PERIOD 1",
+                theme: "cyan"
+            },
+            {
+                title: "Philippine Constitution",
+                room: "Room 7",
+                instructor: "Atty. Salem",
+                startTime: "11:00",
+                endTime: "14:00",
+                displayTime: "11:00 AM - 02:00 PM",
+                type: "PERIOD 2",
+                theme: "red"
+            },
+            {
+                title: "Information Security Seminar",
+                room: "AVR Studio, IS Bldg",
+                instructor: "Prof. Del Rosario",
+                startTime: "14:00",
+                endTime: "17:00",
+                displayTime: "02:00 PM - 05:00 PM",
+                type: "PERIOD 3",
+                theme: "purple"
+            },
+            {
+                title: "Varsity Practice & Drills",
+                room: "Activity Center",
+                instructor: "Coach Davis",
+                startTime: "17:00",
+                endTime: "21:00",
+                displayTime: "05:00 PM - 09:00 PM",
+                type: "AFTER HOURS",
+                subType: "SPORTS",
+                icon: "fa-basketball",
+                theme: "amber"
+            },
+            {
+                title: "Cyber Lynx Lab Access",
+                room: "IS Innovation Hub",
+                instructor: "Dept. Officers",
+                startTime: "21:00",
+                endTime: "23:59",
+                displayTime: "09:00 PM - 11:59 PM",
+                type: "NIGHT SESSION",
+                theme: "cyan"
             }
         ];
 
@@ -650,7 +594,6 @@
         let countdownStepInterval = null;
         let isMuted = false;
 
-        
         let audioCtx = null;
         function getAudioContext() {
             if (!audioCtx) {
@@ -692,12 +635,8 @@
         }
 
         function redirectToLogin() {
-    // Navigate directly to your login page URL (e.g., login.html)
-    window.location.href = 'student-login.html'; 
-    
-    // OR if you are triggering a login modal instead:
-    // openLoginModal();
-}
+            window.location.href = 'student-login.html'; 
+        }
 
         function toggleAudioMute() {
             isMuted = !isMuted;
@@ -833,6 +772,152 @@
             }
         }
 
+        function parseTimeToMinutes(timeStr) {
+            const [h, m] = timeStr.split(':').map(Number);
+            return h * 60 + m;
+        }
+
+        // Highlight Active Happening Event in Timeline
+        function updateHappeningNow() {
+            const now = new Date();
+            const currentMinutes = now.getHours() * 60 + now.getMinutes();
+
+            const container = document.getElementById('happening-now-container');
+            let html = '';
+
+            let currentFound = false;
+            let nextFound = false;
+
+            scheduleData.forEach((item) => {
+                const startMins = parseTimeToMinutes(item.startTime);
+                const endMins = parseTimeToMinutes(item.endTime);
+
+                if (currentMinutes >= startMins && currentMinutes < endMins) {
+                    // Currently Active Highlighted Event
+                    currentFound = true;
+                    const totalDuration = endMins - startMins;
+                    const elapsed = currentMinutes - startMins;
+                    const remaining = endMins - currentMinutes;
+                    const progressPercent = Math.min(100, Math.max(0, (elapsed / totalDuration) * 100));
+
+                    html += `
+                        <div onclick="showEventDetails('${item.title}', '${item.room}', '${item.instructor}', '${item.displayTime}')" class="active-event-card border border-cyber-red p-4 rounded-r-xl transition-all cursor-pointer relative overflow-hidden group">
+                            <div class="flex items-center justify-between text-[11px] font-orbitron font-extrabold tracking-wider text-cyber-red mb-1">
+                                <span class="flex items-center gap-1.5 bg-cyber-red text-white px-2 py-0.5 rounded shadow-sm shadow-cyber-red">
+                                    <i class="fa-solid fa-circle text-[8px] live-pulse-dot"></i> LIVE ONGOING
+                                </span>
+                                <span class="bg-black/80 text-white px-2 py-0.5 rounded border border-cyber-red/60 text-[10px] font-mono">
+                                    ${remaining} MIN REMAINING
+                                </span>
+                            </div>
+                            <h4 class="font-orbitron font-black text-lg text-white group-hover:text-cyber-red transition-colors mt-2">
+                                ${item.title}
+                            </h4>
+                            <div class="text-xs text-cyber-text font-semibold mt-1 flex justify-between">
+                                <span><i class="fa-solid fa-location-dot text-cyber-red mr-1"></i>${item.room} — ${item.instructor}</span>
+                            </div>
+                            <div class="text-xs font-mono text-cyber-red font-bold mt-1">
+                                TIME: ${item.displayTime}
+                            </div>
+                            <div class="w-full bg-black/80 rounded-full h-2 mt-3 overflow-hidden border border-cyber-red/50">
+                                <div class="bg-gradient-to-r from-cyber-red to-cyber-redglow h-full rounded-full transition-all duration-1000 shadow-md shadow-cyber-red" style="width: ${progressPercent}%;"></div>
+                            </div>
+                        </div>
+                    `;
+                } else if (currentMinutes < startMins && !nextFound) {
+                    // Up Next Event
+                    nextFound = true;
+                    const minsUntil = startMins - currentMinutes;
+
+                    html += `
+                        <div onclick="showEventDetails('${item.title}', '${item.room}', '${item.instructor}', '${item.displayTime}')" class="bg-black/60 border-l-4 border-l-cyan-400 border border-cyber-border p-3.5 rounded-r-lg group hover:border-cyan-400 transition-all cursor-pointer">
+                            <div class="flex items-center justify-between text-[11px] font-orbitron font-bold tracking-wider text-cyan-400 mb-1">
+                                <span><i class="fa-solid fa-forward text-xs mr-1"></i> ${item.type} • UP NEXT</span>
+                                <span class="text-cyan-300 font-mono text-[10px] bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-800/60">
+                                    IN ${minsUntil} MIN
+                                </span>
+                            </div>
+                            <h4 class="font-orbitron font-bold text-base text-white group-hover:text-cyan-300 transition-colors">
+                                ${item.title}
+                            </h4>
+                            <div class="text-xs text-cyber-muted font-medium mt-1 flex justify-between">
+                                <span>${item.room} — ${item.instructor}</span>
+                                <span class="font-mono text-white">${item.displayTime}</span>
+                            </div>
+                        </div>
+                    `;
+                } else if (currentMinutes < startMins) {
+                    // Upcoming Schedule Items
+                    const borderColor = item.theme === 'amber' ? 'border-l-amber-500' : 'border-l-purple-500';
+                    const textColor = item.theme === 'amber' ? 'text-amber-500' : 'text-purple-400';
+                    const hoverColor = item.theme === 'amber' ? 'group-hover:text-amber-400' : 'group-hover:text-purple-300';
+                    const iconHtml = item.icon ? `<i class="fa-solid ${item.icon} text-xs mr-1"></i>` : '';
+
+                    html += `
+                        <div onclick="showEventDetails('${item.title}', '${item.room}', '${item.instructor}', '${item.displayTime}')" class="bg-black/40 border-l-4 ${borderColor} border border-cyber-border p-3 rounded-r-lg group hover:${borderColor} transition-all cursor-pointer">
+                            <div class="flex items-center justify-between text-[11px] font-orbitron font-bold tracking-wider ${textColor} mb-1">
+                                <span class="flex items-center gap-1.5">
+                                    ${iconHtml} ${item.type}
+                                </span>
+                                ${item.subType ? `<span class="font-mono text-[10px] text-cyber-muted">${item.subType}</span>` : ''}
+                            </div>
+                            <h4 class="font-orbitron font-bold text-sm text-white ${hoverColor} transition-colors">
+                                ${item.title}
+                            </h4>
+                            <div class="text-xs text-cyber-muted font-medium mt-1 flex justify-between">
+                                <span>${item.room}</span>
+                                <span class="font-mono text-white">${item.displayTime}</span>
+                            </div>
+                        </div>
+                    `;
+                }
+            });
+
+            // Fallback when no schedule is active
+            if (!currentFound) {
+                const defaultActive = scheduleData[3]; // Fallback ongoing view for demo
+                html = `
+                    <div onclick="showEventDetails('${defaultActive.title}', '${defaultActive.room}', '${defaultActive.instructor}', '${defaultActive.displayTime}')" class="active-event-card border border-cyber-red p-4 rounded-r-xl transition-all cursor-pointer relative overflow-hidden group">
+                        <div class="flex items-center justify-between text-[11px] font-orbitron font-extrabold tracking-wider text-cyber-red mb-1">
+                            <span class="flex items-center gap-1.5 bg-cyber-red text-white px-2 py-0.5 rounded shadow-sm shadow-cyber-red">
+                                <i class="fa-solid fa-circle text-[8px] live-pulse-dot"></i> LIVE ONGOING
+                            </span>
+                            <span class="bg-black/80 text-white px-2 py-0.5 rounded border border-cyber-red/60 text-[10px] font-mono">
+                                ACTIVE SESSION
+                            </span>
+                        </div>
+                        <h4 class="font-orbitron font-black text-lg text-white group-hover:text-cyber-red transition-colors mt-2">
+                            ${defaultActive.title}
+                        </h4>
+                        <div class="text-xs text-cyber-text font-semibold mt-1 flex justify-between">
+                            <span><i class="fa-solid fa-location-dot text-cyber-red mr-1"></i>${defaultActive.room} — ${defaultActive.instructor}</span>
+                        </div>
+                        <div class="text-xs font-mono text-cyber-red font-bold mt-1">
+                            TIME: ${defaultActive.displayTime}
+                        </div>
+                        <div class="w-full bg-black/80 rounded-full h-2 mt-3 overflow-hidden border border-cyber-red/50">
+                            <div class="bg-gradient-to-r from-cyber-red to-cyber-redglow h-full rounded-full transition-all duration-1000 shadow-md shadow-cyber-red" style="width: 65%;"></div>
+                        </div>
+                    </div>
+                ` + html;
+            }
+
+            // Tomorrow preview banner
+            html += `
+                <div class="bg-black/30 border-l-4 border-l-gray-600 border border-cyber-border p-3 rounded-r-lg">
+                    <div class="flex items-center justify-between text-[10px] font-orbitron font-bold tracking-wider text-cyber-muted mb-1">
+                        <span>TOMORROW PREVIEW</span>
+                        <span class="font-mono">THU, OCT 01</span>
+                    </div>
+                    <p class="text-xs text-white font-medium">
+                        IS Department Assembly & Midterm Guidelines Briefing
+                    </p>
+                </div>
+            `;
+
+            container.innerHTML = html;
+        }
+
         function updateClock() {
             const now = new Date();
             let hours = now.getHours();
@@ -846,8 +931,10 @@
 
             document.getElementById('live-clock').textContent = `${strHours}:${minutes}:${seconds} ${ampm}`;
 
-            const options = { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' };
-            document.getElementById('live-date').textContent = now.toLocaleDateString('en-US', options).toUpperCase();
+            const options = { weekday: 'LONG', month: 'SHORT', day: 'NUMERIC', year: 'NUMERIC' };
+            document.getElementById('live-date').textContent = now.toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric', year: 'numeric' }).toUpperCase();
+
+            updateHappeningNow();
         }
 
         const weatherPresets = [
@@ -877,17 +964,17 @@
 
         function openModalById(id) {
             if (id === 101) {
-                document.getElementById('modal-title').textContent = "Library Quiet Zone Offline";
-                document.getElementById('modal-desc').textContent = "Main library server maintenance is taking place today. Database search and printing services will resume at 4:00 PM.";
-                document.getElementById('modal-loc').textContent = "Main Library Floor 2";
-                document.getElementById('modal-dl').textContent = "TODAY 4:00 PM";
+                document.getElementById('modal-title').textContent = "Suicide Prevention Month";
+                document.getElementById('modal-desc').textContent = "Suicide prevention month shouldn't limit to a single month in September. Empathy is an ongoing action.";
+                document.getElementById('modal-loc').textContent = "Taculing Campus";
+                document.getElementById('modal-dl').textContent = "EVERYDAY";
                 document.getElementById('modal-cat-badge').textContent = "CAMPUS ALERT";
             } else {
-                document.getElementById('modal-title').textContent = "IS Cyber Quest Hackathon";
-                document.getElementById('modal-desc').textContent = "Registration for the annual 24-hour coding challenge is open. Build AI and IoT solutions for campus efficiency.";
-                document.getElementById('modal-loc').textContent = "Innovation Lab 102";
-                document.getElementById('modal-dl').textContent = "THIS FRIDAY";
-                document.getElementById('modal-cat-badge').textContent = "HACKATHON";
+                document.getElementById('modal-title').textContent = "IS Film Festival 2026";
+                document.getElementById('modal-desc').textContent = "Please be guided with the official schedule for the Film Festival 2026.";
+                document.getElementById('modal-loc').textContent = "G-drive Link";
+                document.getElementById('modal-dl').textContent = "FRI, 6:00 PM";
+                document.getElementById('modal-cat-badge').textContent = "FILM FESTIVAL";
             }
             document.getElementById('detail-modal').classList.remove('hidden');
             triggerAudio('click');
