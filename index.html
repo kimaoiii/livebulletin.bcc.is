@@ -19,14 +19,14 @@
                 extend: {
                     colors: {
                         cyber: {
-                            bg: '#080305',
-                            card: 'rgba(16, 7, 10, 0.90)',
-                            border: '#3d0c15',
-                            red: '#ff0033',
-                            redglow: '#ff2a4b',
-                            dim: '#8f1c2d',
-                            text: '#f5e8ea',
-                            muted: '#a3858c'
+                            bg: '#05020a',
+                            card: 'rgba(12, 7, 20, 0.90)',
+                            border: '#2a0c3d',
+                            red: '#a855f7',
+                            redglow: '#c084fc',
+                            dim: '#581c87',
+                            text: '#f3e8ff',
+                            muted: '#a885c7'
                         }
                     },
                     fontFamily: {
@@ -41,29 +41,29 @@
 
     <style>
         body {
-            background-color: #060204;
-            color: #f5e8ea;
+            background-color: #040208;
+            color: #f3e8ff;
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
             user-select: none;
         }
 
         .ambient-glow-bg {
-            background: radial-gradient(circle at 50% 20%, rgba(255, 0, 51, 0.12) 0%, rgba(6, 2, 4, 0.95) 70%);
+            background: radial-gradient(circle at 50% 20%, rgba(168, 85, 247, 0.15) 0%, rgba(4, 2, 8, 0.95) 70%);
         }
 
         .cyber-card {
-            background: rgba(16, 6, 9, 0.88);
+            background: rgba(12, 6, 20, 0.88);
             backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 0, 51, 0.3);
+            border: 1px solid rgba(168, 85, 247, 0.3);
             position: relative;
-            box-shadow: 0 0 25px rgba(255, 0, 51, 0.08);
+            box-shadow: 0 0 25px rgba(168, 85, 247, 0.12);
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .cyber-card:hover {
-            border-color: rgba(255, 0, 51, 0.7);
-            box-shadow: 0 0 35px rgba(255, 0, 51, 0.25);
+            border-color: rgba(168, 85, 247, 0.7);
+            box-shadow: 0 0 35px rgba(168, 85, 247, 0.3);
         }
 
         .corner-accent::before, .corner-accent::after {
@@ -76,28 +76,28 @@
         }
         .corner-accent::before {
             top: -1px; left: -1px;
-            border-top: 2.5px solid #ff0033;
-            border-left: 2.5px solid #ff0033;
+            border-top: 2.5px solid #a855f7;
+            border-left: 2.5px solid #a855f7;
         }
         .corner-accent::after {
             bottom: -1px; right: -1px;
-            border-bottom: 2.5px solid #ff0033;
-            border-right: 2.5px solid #ff0033;
+            border-bottom: 2.5px solid #a855f7;
+            border-right: 2.5px solid #a855f7;
         }
 
         .glow-title {
-            text-shadow: 0 0 12px rgba(255, 0, 51, 0.8), 0 0 24px rgba(255, 0, 51, 0.4);
+            text-shadow: 0 0 12px rgba(168, 85, 247, 0.8), 0 0 24px rgba(168, 85, 247, 0.5);
         }
 
         .active-event-card {
-            background: linear-gradient(135deg, rgba(255, 0, 51, 0.25) 0%, rgba(20, 5, 10, 0.95) 100%);
-            border-left: 5px solid #ff0033 !important;
-            box-shadow: 0 0 25px rgba(255, 0, 51, 0.35);
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.25) 0%, rgba(15, 5, 25, 0.95) 100%);
+            border-left: 5px solid #a855f7 !important;
+            box-shadow: 0 0 25px rgba(168, 85, 247, 0.35);
         }
 
         @keyframes pulse-glow {
-            0%, 100% { opacity: 1; filter: drop-shadow(0 0 10px rgba(255, 0, 51, 0.9)); transform: scale(1); }
-            50% { opacity: 0.5; filter: drop-shadow(0 0 2px rgba(255, 0, 51, 0.3)); transform: scale(0.95); }
+            0%, 100% { opacity: 1; filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.9)); transform: scale(1); }
+            50% { opacity: 0.5; filter: drop-shadow(0 0 2px rgba(168, 85, 247, 0.3)); transform: scale(0.95); }
         }
         .live-pulse-dot {
             animation: pulse-glow 1.5s infinite ease-in-out;
@@ -123,9 +123,9 @@
         }
 
         ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-track { background: #070204; }
-        ::-webkit-scrollbar-thumb { background: #3d0c15; border-radius: 3px; }
-        ::-webkit-scrollbar-thumb:hover { background: #ff0033; }
+        ::-webkit-scrollbar-track { background: #05020a; }
+        ::-webkit-scrollbar-thumb { background: #2a0c3d; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #a855f7; }
     </style>
 </head>
 <body class="min-h-screen bg-cyber-bg ambient-glow-bg text-cyber-text relative flex flex-col justify-between overflow-x-hidden border-t-2 border-cyber-red">
@@ -1040,7 +1040,7 @@
                 if (this.y > canvas.height) this.y = 0;
             }
             draw() {
-                ctx.fillStyle = `rgba(255, 0, 51, ${this.alpha})`;
+                ctx.fillStyle = `rgba(168, 85, 247, ${this.alpha})`;
                 ctx.fillRect(this.x, this.y, this.size, this.size);
             }
         }
